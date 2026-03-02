@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.PrintWriter;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
@@ -19,7 +18,6 @@ public class LogWriterTest {
         Log log = new DefaultLog(logger);
         LogWriter logWriter = new LogWriter(log);
 
-        logger.info(anyString());
         new Exception().printStackTrace(new PrintWriter(logWriter));
         verify(logger).info("java.lang.Exception");
     }
